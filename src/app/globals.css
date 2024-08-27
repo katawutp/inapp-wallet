@@ -3,20 +3,12 @@
 @tailwind utilities;
 
 :root {
-	line-height: 1.5;
-	font-weight: 400;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: 'Inter', sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
-	font-variation-settings: 'slnt' 0;
-}
-
-@layer base {
-	body {
-		@apply bg-zinc-950 text-neutral-200;
-	}
+  --white: 0, 0%, 100%; /* #ffffff */
+  --blue-dark: 0, 100%, 2%; /* #0a0005 */
+  --grey: 250, 5%, 21%; /* #343444 */
+  --pink-light: 330, 88%, 84%; /* #fac7e2 */
+  --pink-medium: 330, 77%, 80%; /* #f4a0d0 */
+  --pink-dark: 330, 98%, 36%; /* #ba0264 */
+  --red: 2, 90%, 54%; /* #f62117 */
+  --yellow: 64, 95%, 54%; /* #e5f617 */
 }

@@ -16,6 +16,7 @@ import { checkOrCreateUser, getUserTeamByEmail } from "@/app/utils/dbCalls";
 import { getUserEmail } from "thirdweb/wallets/embedded";
 import { defineChain, getContract } from "thirdweb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ButtonComponent } from "../button/ButtonComponent";
 
 export default function Navbar() {
   const account = useActiveAccount();
@@ -63,7 +64,10 @@ export default function Navbar() {
           className="border border-border rounded-lg p-2 bg-input text-foreground"
         /> */}
         {team ? (
-          <div>
+          <div className="flex items-center">
+            <p className="font-bold">
+              {team?.name}
+            </p>
             <Avatar>
               <AvatarImage src={team?.image} alt="@shadcn" />
               <AvatarFallback>Tm</AvatarFallback>
@@ -71,9 +75,10 @@ export default function Navbar() {
           </div>
         ) : (
           <Link href="/choose-club">
-            <button className="text-black hover:opacity-80 px-4 py-2 rounded-lg bg-gradient-to-r from-pink-light via-pink-medium to-pink-dark font-semibold">
-              Create your team
-            </button>
+            <ButtonComponent
+              family="SECONDARY"
+              children="Create your team"
+            />
           </Link>
         )}
 

@@ -6,6 +6,7 @@ import { fetchUserRecord, updateUserAndClub } from "@/app/utils/dbCalls";
 import { useRouter } from "next/navigation";
 import Spinner from "../spinner/Spinner";
 import { getUserEmail } from "thirdweb/wallets/embedded";
+import { ButtonComponent } from "../button/ButtonComponent";
 
 export default function CreateClubDialog({ selectedTeam, handleClose }: any) {
   const [loading, setLoading] = useState(false);
@@ -49,45 +50,35 @@ export default function CreateClubDialog({ selectedTeam, handleClose }: any) {
   return (
     console.log(user),
     (
-      <div className="overflow-y-auto sm:p-0 pt-4 pr-4 pb-1 pl-4 bg-opacity-10">
-        <div className="flex justify-center items-end text-center min-h-1/2 sm:block">
-          <div className="bg-white transition-opacity"></div>
-          <span className="hidden sm:inline-block sm:align-middle sm:h-screen">
-            ​
-          </span>
-          <div className="inline-block align-bottom bg-gray-900 rounded-lg overflow-hidden shadow-2xl transition-all transform sm:my-8 sm:align-middle sm:max-w-xl sm:w-full">
-            <div className="relative max-w-7xl mx-auto px-6 md:px-12 lg:px-24  ">
-              <div className="bg-black max-w-lg mx-auto mt-4 mb-4 ">
-                <div className="flex flex-col items-center p-6 border-2 border-pink-dark rounded-lg ">
-                  <img
-                    src={selectedTeam.image}
-                    alt="Selected Team"
-                    className="w-16 h-16 rounded-full shadow-xl object-cover object-center"
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="relative bg-gray-900 rounded-lg shadow-2xl sm:max-w-xl sm:w-full">
+          <div className="relative mx-auto px-6 md:px-12 lg:px-24">
+            <div className="bg-gray-900 rounded-lg overflow-hidden">
+              <div className="flex flex-col items-center p-6">
+                <img
+                  src={selectedTeam.image}
+                  alt="Selected Team"
+                  className="w-16 h-16 rounded-full shadow-lg object-cover object-center"
+                />
+                <p className="mt-3 text-2xl font-bold text-white lg:text-3xl">
+                  {selectedTeam.name}
+                </p>
+                <p className="mt-4 text-base text-white text-center leading-relaxed">
+                  You are about to choose that shield and name for your club
+                </p>
+                <div className="flex items-center justify-between w-full gap-4 mt-6">
+                  <ButtonComponent
+                    family="PRIMARY"
+                    className="w-full"
+                    children={loading ? <Spinner /> : "Choose Club"}
+                    onClick={() => assignNewClub()}
                   />
-                  <p className="mt-1 text-2xl font-Organo text-white lg:text-3xl">
-                    {selectedTeam.name}
-                  </p>
-                  <p className="mt-6 text-base text-white text-center leading-relaxed">
-                    You are about to choose that shield and name for your club
-                  </p>
-                  <div className="flex items-center justify-between w-full gap-4">
-                    <div className="w-full mt-6">
-                      <button
-                        className="flex items-center justify-center w-full px-5 py-3 text-lg font-semibold text-black bg-pink-medium rounded-xl transition duration-500 ease-in-out hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        onClick={() => assignNewClub()}
-                      >
-                        {loading ? <Spinner /> : "Choose Club"}
-                      </button>
-                    </div>
-                    <div className="w-full mt-6">
-                      <button
-                        onClick={handleClose}
-                        className="flex items-center justify-center w-full px-5 py-3 text-lg font-medium text-black bg-white rounded-xl transition duration-500 ease-in-out hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </div>
+                  <ButtonComponent
+                    family="TERTIARY"
+                    className="w-full"
+                    children="Cancel"
+                    onClick={handleClose}
+                  />
                 </div>
               </div>
             </div>

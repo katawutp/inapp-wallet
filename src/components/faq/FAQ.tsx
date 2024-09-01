@@ -47,10 +47,10 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-br py-10 from-black to-[#1c1c24] p-4">
-      <Card className="w-full xl:max-w-7xl text-white shadow-xl p-10 bg-black">
+    <div className="flex items-center justify-center py-10 from-black to-[#1c1c24] p-4">
+      <Card className="w-full xl:max-w-7xl text-white shadow-xl p-10 bg-black border-grey">
         <CardHeader className="text-center">
-          <CardTitle className="text-4xl font-bold">
+          <CardTitle className="text-4xl font-bold font-poppins">
             Preguntas Frecuentes
           </CardTitle>
           <CardDescription>

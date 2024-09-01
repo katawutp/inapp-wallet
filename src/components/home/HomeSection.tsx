@@ -1,7 +1,6 @@
 import { client } from "@/app/client";
 import { contract } from "@/app/utils/contractCalls";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import { sepolia } from "thirdweb/chains";
 import { claimTo } from "thirdweb/extensions/erc721";
@@ -12,6 +11,7 @@ import {
   ClaimButton,
   TransactionButton,
 } from "thirdweb/react";
+import { ButtonComponent } from "../button/ButtonComponent";
 
 // import Marquee from "./Marquee";
 
@@ -39,7 +39,7 @@ const HomeSection = () => {
               height={350}
             />
           </div>
-          <div className="p-4">
+          <div className="p-4 text-white">
             <h2 className="text-lg font-bold text-foreground">
               CLAIM YOUR FIRST SOCCER CARD PLAYER
             </h2>
@@ -56,44 +56,12 @@ const HomeSection = () => {
                 </strong>
               </span>
             </div>
-            <TransactionButton
-              unstyled
-              className="bg-gradient-to-r from-pink-light via-pink-medium to-pink-dark text-blue-dark text-2xl font-bold rounded-lg w-full mt-4 py-2"
-              transaction={() =>
-                claimTo({
-                  contract,
-                  to: account?.address,
-                  amount: 1n as bigint,
-                })
-              }
-              onError={(err) => {
-                console.log("Contract:", contract);
-                console.log("Account Address:", account?.address);
-                console.log("Amount:", 1n);
-                // Add your own logic here
-              }}
-              payModal={{
-                // This image & title will show up in the Pay modal
-                metadata: {
-                  name: "Van Gogh Starry Night",
-                  image: "https://unsplash.com/starry-night.png",
-                },
-              }}
-              onTransactionSent={(tx) => {
-                alert("transaction sent!");
-                console.log("Contract:", contract);
-                console.log("Account Address:", account?.address);
-                console.log("Amount:", 1n);
-                // Add your own logic here. For example, a toast
-              }}
-              onTransactionConfirmed={(tx) => {
-                alert("transaction sent!");
-                console.log(tx);
-                // Add your own logic here. For example, a toast
-              }}
-            >
-              Claim now
-            </TransactionButton>
+            <ButtonComponent
+              family="PRIMARY"
+              className="w-full mt-6"
+              children="Claim now"
+              /*onClick={}*/
+            />
           </div>
         </div>
 
@@ -117,12 +85,11 @@ const HomeSection = () => {
               Join now and be part of this unparalleled experience.
             </p> */}
               <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-8">
-                <Link
-                  href="/show-posts"
-                  className="font-dm-sans font-bold bg-gradient-to-r from-pink-light via-pink-medium to-pink-dark text-blue-dark px-10 py-4 rounded-md border-[#060047] border hover:border-pink-light hover:text-black hover:shadow-lg hover:shadow-blue-dark "
-                >
-                  Explore
-                </Link>
+                <ButtonComponent
+                  family="PRIMARY"
+                  onClick={() => window.location.href = "/show-posts"}
+                  children="Explore"
+                />
                 <div className="flex space-x-10 font-Organo m-auto items-center">
                   <div className="text-center">
                     <p className="font-semibold">50k+</p>

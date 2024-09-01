@@ -153,16 +153,15 @@ const Content4 = () => {
           id="content4"
           className="relative flex h-screen snap-start items-center justify-center border-t border-white"
         >
-          <div className="absolute top-20 left-0 z-10 m-8 uppercase tracking-wider font-Organo text-white">
+          <div className="w-full flex justify-center absolute left-0 z-10 m-8 uppercase tracking-wider text-white font-bold top-16"> {/* Se agregó top-16 */}
             Choose your team
           </div>
           <div
             className="container flex w-[100%] h-[100%] max-w-full"
             id="container"
           >
-            <h1 className="font-Organo absolute top-1/2 left-1/2 z-10 mt-20 w-4/5 -translate-x-1/2 -translate-y-1/2 transform px-8 text-center text-2xl leading-tight text-white md:text-5xl lg:text-6xl">
-              Pick your club badge to start crafting your squad and command your
-              club
+            <h1 className="text-pink-light absolute font-bold top-1/2 left-1/2 z-10 mt-20 w-4/5 -translate-x-1/2 -translate-y-1/2 transform px-8 text-center text-2xl leading-tight md:text-5xl lg:text-6xl tracking-wider drop-shadow-lg shadow-black">
+              Pick your club badge to start crafting your squad and command your club
             </h1>
           </div>
         </div>

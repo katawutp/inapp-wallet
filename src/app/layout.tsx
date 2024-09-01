@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThirdwebProvider } from "thirdweb/react";
 import { cn } from "@/lib/utils";
 
-const fontSans = FontSans({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-sans",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("font-sans, bg-black", fontSans.variable)}>
+      <body className={cn("font-poppins bg-black", poppins.variable)}>
         <ThirdwebProvider>{children}</ThirdwebProvider>
       </body>
     </html>
